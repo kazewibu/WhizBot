@@ -24,7 +24,6 @@ exif.create(
 )
 
 // Pairing
-const pairingnumber = config.pairing_number
 const pairingCode = process.argv.includes("-pairing");
 const useQr = process.argv.includes("-qr")
 
@@ -64,7 +63,7 @@ const start = async () => {
         level: "silent",
       }),
       browser: ["Chrome (Linux)", "", ""], 
-     // printQRInTerminal: true,
+      printQRInTerminal: !pairingCode,
       auth: state,
       msgRetryCounterCache
     });
@@ -80,8 +79,7 @@ const start = async () => {
         phoneNumber = await question(`Number: `);
         phoneNumber = phoneNumber.replace(/[^0-9]/g, '')
     }
-   /* let code = await bot.requestPairingCode(phoneNumber)*/
-    let code = await bot.requestPairingCode(pairingnumber)
+    let code = await bot.requestPairingCode(phoneNumber)
     code = code?.match(/.{1,4}/g)?.join("-") || code
     console.log(`Your Pairing Code: ${code}`);
     rl.close()
