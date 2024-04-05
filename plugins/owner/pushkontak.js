@@ -6,20 +6,16 @@ const contacts = JSON.parse(fs.readFileSync("./database/contacts.json"))
 
 Command.create({
 	name: 'pushkontak',
-	run({ bot, q, reply, isCreator, isGroup, sender, quoted }) {
+	run({ bot, q, reply, isCreator, isGroup, sender, quoted, funcpkontak }) {
 	
      if (!isCreator) return
      if (!isGroup) return reply('Hanya di group')
      if (!q) return reply(`Teks nya cuy`)
      reply("Tunggu")
 const isContacts = contacts.includes(sender)
-const groupMetadata = isGroup? await bot.groupMetadata(from).catch(e => {}) : ""
-const groupOwner = isGroup? groupMetadata.owner : ""
-const participantts = isGroup? await groupMetadata.participants : ""
-const halsss = await participantts.filter(v => v.id.endsWith('.net')).map(v => v.id)
 "" = q
 if (isContacts) return
-for (let men of halsss) {
+for (let men of funcpkontak) {
 contacts.push(men)
 fs.writeFileSync('./database/contacts.json', JSON.stringify(contacts))
 if (/image/.test(mime)) {
