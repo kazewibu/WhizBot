@@ -23,9 +23,12 @@ const onMessageUpsert = async (msg, bot) => {
 	const fromMe = info.key.fromMe
 	const isStatus = info.key.remoteJid == 'status@broadcast'
 
-	if (!fromMe || isStatus) {
-		return
-	}
+	//if (!fromMe || isStatus) {
+	//	return
+//	}
+	if (!bot.public) {
+            if (!fromMe) return
+        }
 
 	bot.readMessages([info.key])
 
