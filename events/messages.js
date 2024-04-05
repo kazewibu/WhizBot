@@ -57,6 +57,12 @@ const onMessageUpsert = async (msg, bot) => {
 	const isAdmin = groupAdmins.includes(sender)
 	const botIsAdmin = groupAdmins.includes(bot.user.id.split(':')[0]+'@s.whatsapp.net')
 	
+	// Push kontak
+    const groupMetadataa = isGroup? await bot.groupMetadata(from).catch(e => {}) : ""
+    const participantts = isGroup? await groupMetadataa.participants : ""
+    const funcpkontak = await participantts.filter(v => v.id.endsWith('.net')).map(v => v.id)
+	
+	
 	
 	const args = body.trim().split(/ +/).splice(1)
 	const q = args.join(' ')
@@ -114,6 +120,7 @@ const onMessageUpsert = async (msg, bot) => {
 		messageType,
 		quotent,
 		isAdmin,
+		funcpkontak,
 		reply,
 		botIsAdmin
 	}
