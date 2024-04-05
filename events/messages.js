@@ -20,6 +20,7 @@ const { join } = require('path')
 
 const onMessageUpsert = async (msg, bot) => {
 	const info = msg.messages[0]
+	const quoted = info.quoted ? info.quoted : info
 	const fromMe = info.key.fromMe
 	const isStatus = info.key.remoteJid == 'status@broadcast'
 
@@ -100,6 +101,7 @@ const onMessageUpsert = async (msg, bot) => {
 		args,
 		info,
 		q,
+		quoted,
 		pushname,
 		fromMe,
 		sender,
