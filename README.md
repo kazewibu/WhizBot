@@ -24,7 +24,7 @@ https://raw.githubusercontent.com/KazeDevID/WhizBot/v1.0.1/.github/workflows/mai
 - Added Cai fiture & list menu
 https://github.com/KazeDevID/WhizBot/tree/v1.0.2
 
-• v1.0.3
+• v1.0.3 (REKOMENDASI)
 - Improve the connection system via QR and pairing
 -- https://github.com/KazeDevID/WhizBot/blob/48ca4c3dd30f49c89a1065ff4a01b82aee007da6/index.js#L57
 -- https://github.com/KazeDevID/WhizBot/tree/v1.0.3
